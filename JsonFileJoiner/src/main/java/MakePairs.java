@@ -24,9 +24,9 @@ public class MakePairs extends DoFn<String, Pair<String,String>>{//Since it take
                 else if (obj.has("category"))
                     featur = "1"+ obj.getString("category");
                 else if (obj.has("category_name"))
-                    featur = "2"+ obj.getString("category_name");
+                    featur = "2"+ obj.getString("range");
                 else
-                    featur = "3"+ obj.getString("brand_name");
+                    featur = "3"+ obj.getString("value");
 
                 emitter.emit(Pair.of(id,featur));//Links product id with associated field, and turns them into a Pair to be sent to the PTable
 
