@@ -40,10 +40,10 @@ public class JsonFileJoiner extends Configured implements Tool{
 
         PCollection<String> data1 = pipeline.readTextFile(inputPath1);//One by one read data from each address given in arguments
         PCollection<String> data2 = pipeline.readTextFile(inputPath2);
-        //PCollection<String> data3 = pipeline.readTextFile(inputPath3);
+        PCollection<String> data3 = pipeline.readTextFile(inputPath3);
         PCollection<String> data4 = pipeline.readTextFile(inputPath4);
 
-        PCollection<String> data = data1.union(data2,data4);//Unite all the data into one collection
+        PCollection<String> data = data1.union(data2,data3,data4);//Unite all the data into one collection
 
         PTable<String,String> id_pairs = data.parallelDo(new MakePairs(),Writables.tableOf(Writables.strings(),Writables.strings()));//Make key value pairs with product id and feature
 
