@@ -25,10 +25,10 @@ public class JoinFiles extends DoFn<Pair<String,Collection<String>>,String>{
                         obj.put("category", str.substring(1));
                         break;
                     case '2':
-                        obj.put("category_name", str.substring(1));
+                        obj.put("range", str.substring(1));
                         break;
                     default:
-                        obj.put("brand_name", str.substring(1));
+                        obj.put("value", str.substring(1));
                         break;
                 }
             }
